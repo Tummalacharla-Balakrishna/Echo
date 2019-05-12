@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#9b2a58"
+              android:clickable="true"
+              android:orientation="vertical">
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:src="@drawable/bala_krishna"
+            android:layout_marginTop="100dp"
+            android:id="@+id/about_us_logo"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="20dp"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:text="This app is made by Bala Krishna as a part of Internshala's  Online Android Training Project"
+    />
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="App Version:1.0"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="120dp"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
+            android:textSize="21sp"/>
+
+</LinearLayout>

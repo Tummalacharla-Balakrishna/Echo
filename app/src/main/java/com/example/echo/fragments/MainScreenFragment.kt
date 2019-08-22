@@ -74,7 +74,7 @@ class MainScreenFragment : Fragment() {
         //return inflater.inflate(R.layout.fragment_main_screen, container, false)
     }
 
-
+    //Performing actions on the songs
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
@@ -144,7 +144,7 @@ class MainScreenFragment : Fragment() {
         }
         return super.onOptionsItemSelected(item)
     }
-
+    
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         myActivity = context as Activity
@@ -155,6 +155,7 @@ class MainScreenFragment : Fragment() {
         myActivity = activity
     }
 
+    //For reterving songs from External and internal storage
     fun getSongsFromPhone(): ArrayList<Songs> {
         var arrayList = ArrayList<Songs>()
 

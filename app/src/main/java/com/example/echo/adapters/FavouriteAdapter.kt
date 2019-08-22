@@ -13,6 +13,7 @@ import com.example.echo.R
 import com.example.echo.Songs
 import com.example.echo.fragments.SongPlayingFragment
 
+//For saving favourite songs
 class FavoriteAdapter(_songDetails: ArrayList<Songs>, _context: Context) : RecyclerView.Adapter<FavoriteAdapter.MyViewHolder>() {
 
 
@@ -23,6 +24,8 @@ class FavoriteAdapter(_songDetails: ArrayList<Songs>, _context: Context) : Recyc
         this.songDetails = _songDetails
         this.mContext = _context
     }
+    
+    //To add Song to favourite screen
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val songObject = songDetails?.get(position)
         holder.trackTitle?.text = songObject?.songTitle
@@ -36,6 +39,7 @@ class FavoriteAdapter(_songDetails: ArrayList<Songs>, _context: Context) : Recyc
             args.putString("songTitle",songObject?.songTitle)
             args.putInt("songId",songObject?.songId?.toInt() as Int)
             args.putInt("songPosition",position)
+            //To process data between activites
             args.putParcelableArrayList("songData",songDetails)
             songPlayingFragment.arguments=args
             SongPlayingFragment.Statified.mediaPlayer?.pause()
@@ -47,6 +51,7 @@ class FavoriteAdapter(_songDetails: ArrayList<Songs>, _context: Context) : Recyc
         })
     }
 
+    //Creates new ViewHolder if not exits
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent?.context)
             .inflate(R.layout.row_custom_mainscreen_adapter, parent, false)
@@ -61,7 +66,7 @@ class FavoriteAdapter(_songDetails: ArrayList<Songs>, _context: Context) : Recyc
             return (songDetails as ArrayList<Songs>).size
         }
     }
-
+    //RecyclerView used to get dynamic data
     class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         var trackTitle: TextView? = null

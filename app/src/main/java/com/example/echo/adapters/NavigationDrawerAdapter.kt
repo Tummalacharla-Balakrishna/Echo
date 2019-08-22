@@ -23,6 +23,7 @@ class NavigationDrawerAdapter(_contentList: ArrayList<String>,_getImages: IntArr
         this.mcontext=_context
     }
 
+    //The onBindViewHolder() method is used to display the data at the specified position.
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): NavViewHolder {
         var itemview=LayoutInflater.from(parent?.context)
             .inflate(R.layout.row_custom_navigationdrawer,parent,false)
@@ -41,6 +42,7 @@ class NavigationDrawerAdapter(_contentList: ArrayList<String>,_getImages: IntArr
         holder?.contentHolder?.setOnClickListener({
             if(position==0)
             {
+                //view to Main Screen
                 val mainScreenFragment=MainScreenFragment()
                 (mcontext as MainActivity).supportFragmentManager
                     .beginTransaction()
@@ -48,6 +50,7 @@ class NavigationDrawerAdapter(_contentList: ArrayList<String>,_getImages: IntArr
                     .commit()
             }else if(position==1)
             {
+                //view to Favourire Screen
                 val favoriteFragment = FavoriteFragment()
                 (mcontext as MainActivity).supportFragmentManager
                     .beginTransaction()
@@ -55,6 +58,7 @@ class NavigationDrawerAdapter(_contentList: ArrayList<String>,_getImages: IntArr
                     .commit()
             }else if(position==2)
             {
+                //view to Settings screen
                 val setttingsFragment=SettingsFragment()
                 (mcontext as MainActivity).supportFragmentManager
                     .beginTransaction()
@@ -62,6 +66,7 @@ class NavigationDrawerAdapter(_contentList: ArrayList<String>,_getImages: IntArr
                     .commit()
             }else if(position==3)
             {
+                //view to AboutUs Fragment
                 val aboutUsFragment=AboutUsFragment()
                 (mcontext as MainActivity).supportFragmentManager
                     .beginTransaction()
@@ -72,7 +77,7 @@ class NavigationDrawerAdapter(_contentList: ArrayList<String>,_getImages: IntArr
         })
     }
 
-
+    //Creating view holder for recycler View
     class NavViewHolder(itemView : View):RecyclerView.ViewHolder(itemView){
         var icon_GET: ImageView?=null
         var text_GET: TextView?=null

@@ -18,14 +18,17 @@ class SplashActivity : AppCompatActivity() {
     var permissionsString=arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.MODIFY_AUDIO_SETTINGS,Manifest.permission.READ_PHONE_STATE,Manifest.permission.PROCESS_OUTGOING_CALLS,Manifest.permission.RECORD_AUDIO)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //initial activity set as Splash activity
         setContentView(R.layout.activity_splash)
 
+        //Checking All the Permissions are Granted or Not
         if(!hasPermission( this@SplashActivity, *permissionsString)) {
 
             ActivityCompat.requestPermissions(this@SplashActivity,permissionsString,131)
         }
         else
         {
+            //stopping splash activity and shifting view to MainActivity
             Handler().postDelayed({
                 val startact= Intent(this@SplashActivity, MainActivity::class.java)
                 startActivity(startact)
@@ -47,6 +50,7 @@ class SplashActivity : AppCompatActivity() {
             }
             else
             {
+                //when permission has not set display this message
                 Toast.makeText(this@SplashActivity,"Please grant all permissions",Toast.LENGTH_SHORT).show()
                 this.finish()
             }
@@ -58,6 +62,7 @@ class SplashActivity : AppCompatActivity() {
                 return
             }}
     }
+    //Checking all the permission and return bool value
     fun hasPermission(context: Context, vararg permissions: String): Boolean{
         var hasAllPermissions=true;
         for(permission in permissions)

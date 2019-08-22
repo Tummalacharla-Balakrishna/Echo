@@ -30,17 +30,22 @@ class MainActivity : AppCompatActivity() {
         var drawerlayout: DrawerLayout? = null
         var notificationManager: NotificationManager?=null
     }
-
+    
+    //Used for Notification manager
     var trackNotificationBuilder: Notification?=null
 
     @Suppress("DEPRECATION")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        //Adding Text to NavigationDrawer Items
         setContentView(R.layout.activity_main)
         navigationDrawerIconsList.add("All Songs")
         navigationDrawerIconsList.add("Favorities")
         navigationDrawerIconsList.add("Settings")
         navigationDrawerIconsList.add("About Us")
+        
+        //Adding toolBar to the app
         val toolbar=findViewById<android.support.v7.widget.Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         MainActivity.Statified.drawerlayout=findViewById(R.id.drawer_layout)
@@ -51,6 +56,7 @@ class MainActivity : AppCompatActivity() {
         MainActivity.Statified.drawerlayout?.addDrawerListener(toggle)
         toggle.syncState()
 
+        //Start Main Screen Fragment
         val mainScreenFragment= MainScreenFragment()
         this.supportFragmentManager
             .beginTransaction()
